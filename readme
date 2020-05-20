@@ -1,0 +1,15 @@
+This repository contains an example case of python automated end-to-end breast simulation. 
+
+Input.csv: Contains an example patient's (57) details. 
+
+getSimulation.py: Reads the input csv file, parses out the required information and calls the simulation function.
+
+getSimulation_flask.py: Invokes the simulation function by receiving inputs via an API call, decides on which python function to call based on the state of the simulation. Has updated features like immediate response to the API requests, multi-threading, exception handling, json parsing of inputs and simulation calls for both breats.
+
+getSimulation_flask_arch.png: Image detailing out the architecture behind flask handing of calls. Note: Only the simulation call part is uploaded here, the remaining is not open soourced.
+
+simulation.py: Uses PyFOAM's utilities to invoke and control OpenFOAM runs. Uses OpenFOAM utilities for pre-processing, setting up the solver and VTK conversion for post-processing and solver to run the simulation.
+
+postProcessing.py: Uses ParaView's python trace functionality to automate the process of visualization and application of filters like slice, threshold, etc. This function coupled with the simulation call represents an entire automated numerical simulation setup.
+
+
